@@ -1,0 +1,17 @@
+def task_5():
+    list_int_numbers = []
+    list_other = []
+
+    a = input("Input numbers:\n").split()
+    for i in range(len(a)):
+        try:
+            list_int_numbers.append(int(a[i]))
+        except ValueError:
+            list_other.append(a[i])
+
+    if list_other == []:
+        print(sorted(list_int_numbers,reverse=True)[:3])
+    else:
+        print(list_other)
+
+task_5()

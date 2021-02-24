@@ -1,0 +1,13 @@
+def task_2():
+    a = input("Input numbers:\n").split()
+
+    for i in range(len(a)):
+        try:
+            if int(a[i]) == 254:
+                break
+            elif int(a[i])%2 == 0:
+                print(int(a[i]))
+        except(ValueError):
+            break
+task_2()
+

@@ -1,0 +1,11 @@
+
+def task_1():
+    a = input("Input numbers:\n")
+    list_a = list(a.split())
+    tuple_a = tuple(a.split())
+    print(list_a)
+    print(tuple_a)
+
+
+task_1()
+
