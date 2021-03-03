@@ -1,4 +1,5 @@
 
+
 def task_1():
     a = input("Input numbers:\n")
     list_a = list(a.split(","))

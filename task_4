@@ -6,6 +6,8 @@ def task_4():
     getlogin = os.getlogin()
     platform_sys = platform.system()
     platform_release = platform.release()
+
+
     print("This script has the following PID:", str(os.getpid()) + ". It was ran by", os.getlogin() + ", to work happily on", platform.system(),"-", platform.release())
 
     print("This script has the following PID: {}. It was ran by {}, to work happily on {} - {}".format(pid,getlogin,platform_sys,platform_release))
@@ -18,6 +20,7 @@ def task_4():
         "This script has the following PID: %(pid)d. It was ran by %(getlogin)s, to work happily on %(platform_sys)s - %(platform_release)s" % {
             "pid": pid, "getlogin": getlogin, "platform_sys": platform_sys, "platform_release": platform_release})
 
+    print(f"This script has the following PID: {pid}. It was ran by {getlogin}, to work happily on {platform_sys} - {platform_release}")
 
 task_4()
 

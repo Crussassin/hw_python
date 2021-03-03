@@ -1,13 +1,13 @@
-def task_2():
-    a = input("Input numbers:\n").split()
+import sys
+if not sys.argv[1:]:
+    print("Please use arguments next time")
+    exit()
 
-    for i in range(len(a)):
+for i in sys.argv[1:]:
         try:
-            if int(a[i]) == 254:
+            if int(i) == 254:
                 break
-            elif int(a[i])%2 == 0:
-                print(int(a[i]))
+            elif int(i) % 2 == 0:
+                print(i)
         except(ValueError):
             break
-task_2()
-

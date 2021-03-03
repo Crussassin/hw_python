@@ -9,9 +9,9 @@ def task_5():
         except ValueError:
             list_other.append(a[i])
 
-    if list_other == []:
-        print(sorted(list_int_numbers,reverse=True)[:3])
-    else:
-        print(list_other)
+
+    print("These are the sorted items:", sorted(list_int_numbers,reverse=True)[:3])
+    print("There are excess elements:", list_other)
+
 
 task_5()
