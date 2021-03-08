@@ -1,0 +1,12 @@
+def task_6():
+    text = input("Input text:\n")
+    dictionary = {}
+    for i in text:
+
+        if i not in dictionary:
+            dictionary[i] = 1
+        else:
+            dictionary[i] += 1
+
+    print(dictionary)
+task_6()

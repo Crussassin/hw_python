@@ -1,0 +1,10 @@
+import sys
+
+a = ""
+if not sys.argv[1:]:
+    print("Please use arguments next time:)\ntask_3.py *some arguments*")
+    exit()
+while a != sys.argv[1:]:
+    print("Please, write the phrase:\n")
+    a = input().split()
+print("Well done!")

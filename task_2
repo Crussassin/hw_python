@@ -1,0 +1,13 @@
+import sys
+if not sys.argv[1:]:
+    print("Please use arguments next time")
+    exit()
+
+for i in sys.argv[1:]:
+        try:
+            if int(i) == 254:
+                break
+            elif int(i) % 2 == 0:
+                print(i)
+        except(ValueError):
+            break

@@ -1,0 +1,54 @@
+# Awk
+# * What is the most frequent browser (user agent)?
+# * Show number of requests per month for ip 95.108.213.19 (for example: Sep 2016 - 100500 reqs, Oct 2016 - 0 reqs, Nov 2016 - 2 reqs...)
+# * Show total amount of data which server has provided for each unique ip (i.e. 100500 bytes for 1.2.3.4; 9001 bytes for 5.4.3.2 and so on)
+
+
+import re
+import os
+
+dir = os.path.abspath(os.curdir)
+logfile = dir + "/logfile"
+
+
+file = open(logfile, 'r')
+
+dictionary_1 = {}
+dictionary_2 = {}
+dictionary_3 = {}
+
+
+for line in file:
+
+    if line.split(' ')[11] not in dictionary_1:
+        dictionary_1[line.split(' ')[11]] = 1
+    else:
+        dictionary_1[line.split(' ')[11]] += 1
+
+
+
+    if line.split(' ')[0] == "176.222.58.90":
+        month_year = re.sub(r':.*', "", line.split(' ')[3])  # убираем лишние символы справа
+        month_year = re.sub(r'\[[0-9]+\/', "", month_year)  # убираем лишние символы слева
+
+
+        if month_year not in dictionary_2:
+            dictionary_2[month_year] = 1
+        else:
+            dictionary_2[month_year] += 1
+
+
+    if line.split(' ')[0] not in dictionary_3:
+        dictionary_3[line.split(' ')[0]] = int(line.split(' ')[9])
+    else:
+        dictionary_3[line.split(' ')[0]] += int(line.split(' ')[9])
+
+
+
+
+
+print("The most frequent browser:", {x: y for x, y in filter(lambda x: dictionary_1[x[0]] == max(dictionary_1.values()), dictionary_1.items())})
+
+print("Show number of requests per month for 176.222.58.90:", dictionary_2)
+print("Total amount of data which server has provided for each unique ip:", dictionary_3)
+
